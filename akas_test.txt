@@ -1,0 +1,6 @@
+titleId	ordering	title	region	language	types	attributes	isOriginalTitle
+tt4	1	Эпизод1С1	RU	\N	imdbDisplay	\N	0
+tt5	2	Эпизод1С2	RU	\N	imdbDisplay	\N 	0
+tt6	3	Эпизод1С3 	RU	\N	imdbDisplay	\N	0
+tt7	4	Эпизод2С1	RU	\N	imdbDisplay	\N	0
+tt8	5	Эпизод2С2	US	\N	imdbDisplay	\N	0

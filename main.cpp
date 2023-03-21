@@ -8,9 +8,10 @@ using namespace std;
 int main(int argc, char* argv[]) {	
 	setlocale(LC_ALL, "Russian");
 	cout << "Разместите передаваемые в аргументы файлы в одной директории с исполняемым файлом" << endl;
+	cout << "Название сериала возьмите в кавычки" << endl;
     if (argc != 5) {
-        cout << "Usage: " << argv[0] << " <basics.tsv> <episode.tsv> <akas.tsv> \"seriesname\"" << endl;        
-        cout << "Название сериала возьмите в кавычки" << endl;
+        cout << "Usage: " << argv[0] << " <basics.tsv> <episode.tsv> <akas.tsv> \"seriesname\"" << endl;    
+        
         return 1;
     }
     
@@ -39,9 +40,9 @@ int main(int argc, char* argv[]) {
 	vector<string> Episode_Ids = Episode_Search(Episode, Series_ID[0]);
 	cout<<"Количество эпизодов "<<Episode_Ids.size()<<endl;
 	
-	for (int i = 0; i < Episode_Ids.size(); i++) {
-    	cout<<"Episode_Id "<<Episode_Ids[i]<<endl;
-    }
+	//for (int i = 0; i < Episode_Ids.size(); i++) {
+    //	cout<<"Episode_Id "<<Episode_Ids[i]<<endl;
+    //}
     
 	vector<string> Episode_Titles = RU_Titles(Akas, Episode_Ids);
 	cout<<"Эпизодов на русском "<<Episode_Titles.size()<<endl;
@@ -55,7 +56,7 @@ int main(int argc, char* argv[]) {
 		cout<<Episode_Titles[i]<<endl;
 	}
 	
-	cout<<"cout_debug"<<endl;
+	//cout<<"cout_debug"<<endl;
 	
 	Basics.close();
 	Episode.close();

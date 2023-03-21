@@ -1,0 +1,6 @@
+tconst	parentTconst	seasonNumber	episodeNumber
+tt4	tt1	1	1
+tt5	tt1	1	2
+tt6	tt2	1	1
+tt7	tt2	1	2
+tt8	tt2	1	3

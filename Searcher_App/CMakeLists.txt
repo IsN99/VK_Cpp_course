@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(my_project)
+project(Searcher_App)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -17,9 +17,7 @@ set(SOURCES
     RU_Titles.cpp
     RU_Titles.h
     Series_Search.cpp
-    Series_Search.h
-    Tabs.cpp
-    Tabs.h
+    Series_Search.h    
 )
 
 add_executable(episode_searcher ${SOURCES})

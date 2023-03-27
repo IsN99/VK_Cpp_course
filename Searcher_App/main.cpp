@@ -1,25 +1,32 @@
-#include "Series_Search.h"
-#include "Episode_Search.h"
-#include "RU_Titles.h"
-#include "EN_Titles.h"
+#include "Searchers.h"
+
 
 using namespace std;
 
-int Parse_Args(int argc, char* argv[], string& Basics_Name, string& Episode_Name, string& Akas_Name, string& Series_Name) {
+int Parse_Args(int argc, char* argv[], string& Basics_Name, string& Episode_Name, string& Akas_Name, string& Series_Name){
     cout << "Разместите файлы в одной директории с исполняемым файлом!" << endl;
     cout << "Название сериала возьмите в кавычки!" << endl << endl;
+    cout << "Формат ввода: " << argv[0];
+    cout << " --basics-name <BASICS> --episode-name <EPISODES> --akas-name <AKAS> --series-name <\"SERIES\">"<<endl << endl;
 
-    if (argc != 5) {
-        cout << "Usage: " << argv[0] << " <basics.tsv> <episode.tsv> <akas.tsv> \"seriesname\"" << endl;
-        return 1;
+    if (argc == 9){
+        for (int i = 0; i < 9; i++){
+            if (std::string(argv[i]).compare("--basics-name") == 0){
+                Basics_Name = argv[i+1];
+            } else
+            if (std::string(argv[i]).compare("--episode-name") == 0){
+                Episode_Name = argv[i+1];
+            } else
+            if (std::string(argv[i]).compare("--akas-name") == 0){
+                Akas_Name = argv[i+1];
+            } else
+            if (std::string(argv[i]).compare("--series-name") == 0){
+                Series_Name = argv[i+1];
+            }
+        }
+        return 0;
     }
-
-    Basics_Name = argv[1];
-    Episode_Name = argv[2];
-    Akas_Name = argv[3];
-    Series_Name = argv[4];
-
-    return 0;
+    return 1;
 }
 
 

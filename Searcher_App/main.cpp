@@ -81,8 +81,7 @@ int main(int argc, char* argv[]) {
 		cout<<"Поиск названий эпизодов на английском ..."<<endl;
 		Episode_Titles = EN_Titles(Basics, Episode_Ids);
 	}
-	
-	
+		
     //вывод названий эпизодов
     for (auto i : Episode_Titles) {
         cout<<i<<endl;

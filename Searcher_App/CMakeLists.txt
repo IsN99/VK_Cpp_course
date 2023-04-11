@@ -17,8 +17,16 @@ set(HEADERS
 
 add_executable(searcher_app ${SOURCES})
 
-add_executable(tests tests/Tests.cpp)
-
-add_test(NAME tests COMMAND tests) 
-
 target_include_directories(searcher_app PUBLIC include)
+
+set(TEST_SOURCES
+    tests/Tests.cpp
+    src/Line_Words.cpp
+    src/Searchers.cpp
+)
+
+add_executable(tests ${TEST_SOURCES})
+
+add_test(NAME tests COMMAND tests)
+
+target_include_directories(tests PRIVATE include)

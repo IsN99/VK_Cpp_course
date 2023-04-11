@@ -3,8 +3,8 @@
 #include <iostream>
 #include <string>
 #include <assert.h>
-#include "../include/Searchers.h"
-#include "../include/Line_Words.h"
+#include "Line_Words.h"
+#include "Searchers.h"
 
 // Тестирование функции на пустой строке
 void TestEmptyString() {

@@ -17,4 +17,8 @@ set(HEADERS
 
 add_executable(searcher_app ${SOURCES})
 
+add_executable(tests tests/Tests.cpp)
+
+add_test(NAME tests COMMAND tests) 
+
 target_include_directories(searcher_app PUBLIC include)

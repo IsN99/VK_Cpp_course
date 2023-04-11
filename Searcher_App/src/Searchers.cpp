@@ -19,14 +19,17 @@ std::vector<std::string> EN_Titles(std::ifstream& File, const std::vector<std::s
     std::vector<std::string> En_Name;
     std::string line;
     
+    //сортируем эпизоды
+    std::vector<std::string> sorted_Episode_Ids = Episode_Ids;
+    std::sort(sorted_Episode_Ids.begin(), sorted_Episode_Ids.end());
+
     while (std::getline(File, line)) {
         std::vector<std::string> substrings = Line_Words(line);
         
         //Ищем для каждой строки совпадения Id с идендификаторами нужных эпизодов
-        auto it = find(Episode_Ids.begin(), Episode_Ids.end(), substrings.at(0));
-        if (it != Episode_Ids.end()) {
+        if (std::binary_search(sorted_Episode_Ids.begin(), sorted_Episode_Ids.end(), substrings.at(0))) {
             En_Name.push_back(substrings.at(2));
-        }
+        } 
 
     }
     return En_Name;

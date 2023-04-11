@@ -55,8 +55,14 @@ int main(int argc, char* argv[]) {
 	
 	cout<<"Поиск ID сериала ..."<<endl;
     vector<string> Series_ID = Series_Search(Basics, Series_Name);//получаем id искомого сериала
-	cout<<"ID сериала "<<Series_ID[0]<<endl<<endl;
-
+    try{
+        if (Series_ID.empty()) {
+            throw std::runtime_error("Сериал с именем " + Series_Name + " не был найден");
+        }
+        cout<<"ID сериала "<<Series_ID[0]<<endl<<endl;
+    } catch (const std::runtime_error& e) {
+        std::cout << "Ошибка: " << e.what() << std::endl;        
+    }
     //проверка на 18+
 	if (Series_ID.at(4) == "1") {
 		cout<<"Фильм для взрослых"<<endl<<endl;
@@ -83,17 +89,11 @@ int main(int argc, char* argv[]) {
 	}
 		
     //вывод названий эпизодов
-    for (auto i : Episode_Titles) {
-        cout<<i<<endl;
-	}
-	
-	//cout<<"cout_debug"<<endl;
-	
-
-    //закрываем файлы
-	Basics.close();
-	Episode.close();
-	Akas.close();
+    if (Episode_Titles.size() > 0){
+        for (const auto& i : Episode_Titles) {
+            cout<<i<<endl;
+        }
+    }
 
     return 0;
 }

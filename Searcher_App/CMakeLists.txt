@@ -11,8 +11,8 @@ set(SOURCES
 )
 
 set(HEADERS
-    Searchers.h        
-    Line_Words.h
+    include/Searchers.h        
+    include/Line_Words.h
 )
 
 add_executable(searcher_app ${SOURCES})

@@ -8,14 +8,14 @@ std::vector<std::string> Episode_Search(std::ifstream& File, const std::string& 
         std::vector<std::string> substrings = Line_Words(line);
 
         //ищем совпадение Id сериала с Родительским Id для эпизода
-        if (substrings[1] == Ser_Id) {
-            Episode_Id.push_back(substrings[0]);
+        if (substrings.at(1) == Ser_Id) {
+            Episode_Id.push_back(substrings.at(0));
         }
     }
     return Episode_Id;
 }
 
-std::vector<std::string> EN_Titles(std::ifstream& File, const std::vector<std::string>& Episode_Ids) {
+std::vector<std::string> EN_Titles(std::ifstream& File, const std::vector<std::string>& Episode_Ids){
     std::vector<std::string> En_Name;
     std::string line;
     
@@ -23,9 +23,9 @@ std::vector<std::string> EN_Titles(std::ifstream& File, const std::vector<std::s
         std::vector<std::string> substrings = Line_Words(line);
         
         //Ищем для каждой строки совпадения Id с идендификаторами нужных эпизодов
-        auto it = find(Episode_Ids.begin(), Episode_Ids.end(), substrings[0]);
+        auto it = find(Episode_Ids.begin(), Episode_Ids.end(), substrings.at(0));
         if (it != Episode_Ids.end()) {
-            En_Name.push_back(substrings[2]);
+            En_Name.push_back(substrings.at(2));
         }
 
     }
@@ -38,7 +38,7 @@ std::vector<std::string> Series_Search(std::ifstream& File, const std::string& S
     
     while (std::getline(File, line)) {
         std::vector<std::string> substrings = Line_Words(line);//разбиваем каждую перебираемую строку на слова
-        if (substrings[1] == "tvSeries" && substrings[3] == Ser_Name) {
+        if (substrings.at(1) == "tvSeries" && substrings.at(3) == Ser_Name) {
             result = substrings;
             break; 
         }
@@ -52,12 +52,11 @@ std::vector<std::string> RU_Titles(std::ifstream& File, const std::vector<std::s
     std::string line;
     while (std::getline(File, line)) {
         std::vector<std::string> substrings = Line_Words(line);
-        if (substrings[3] == "RU" || substrings[4] == "ru") {
-
+        if (substrings.at(3) == "RU" || substrings.at(4) == "ru") {
             //Ищем для каждой строки совпадения Id с идендификаторами нужных эпизодов
-            auto it = find(Episode_Ids.begin(), Episode_Ids.end(), substrings[0]);
+            auto it = find(Episode_Ids.begin(), Episode_Ids.end(), substrings.at(0));
             if (it != Episode_Ids.end()) {
-                Ru_Name.push_back(substrings[2]);
+                Ru_Name.push_back(substrings.at(2));
             }
 
         }

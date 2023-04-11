@@ -8,7 +8,7 @@ std::vector<std::string> Line_Words(std::string& str) {
 
     //вставляем в цикле подстроки с первой по предпоследнюю
     for (int i = 0; i < str.length(); i++) {
-        if (str[i] == '\t') {
+        if (str.at(i) == '\t') {
             std::string substr = str.substr(start, i - start);
             Words.push_back(substr);
             start = i + 1;

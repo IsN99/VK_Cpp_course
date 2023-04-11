@@ -58,13 +58,13 @@ int main(int argc, char* argv[]) {
 	cout<<"ID сериала "<<Series_ID[0]<<endl<<endl;
 
     //проверка на 18+
-	if (Series_ID[4] == "1") {
+	if (Series_ID.at(4) == "1") {
 		cout<<"Фильм для взрослых"<<endl<<endl;
 		return 0;
 	}
 
 	cout<<"Поиск ID эпизодов ..."<<endl;
-    vector<string> Episode_Ids = Episode_Search(Episode, Series_ID[0]);//получаем id эпизодов
+    vector<string> Episode_Ids = Episode_Search(Episode, Series_ID.at(0));//получаем id эпизодов
 	cout<<"Количество эпизодов "<<Episode_Ids.size()<<endl<<endl;
 	
     //for (int i = 0; i < Episode_Ids.size(); i++) {

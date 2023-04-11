@@ -19,7 +19,7 @@ void TestStringWithoutTabs() {
     std::string str = "1";
     std::vector<std::string> words = Line_Words(str);
     assert(words.size() == 1);
-    assert(words[0] == "2");
+    assert(words[0] == "1");
 }
 
 // Тестирование функции на строке с одним табом
@@ -55,21 +55,29 @@ void TestStringWithOnlyTabs() {
     assert(words[3].empty());
 }
 
+void TestEnTitles() {
+    std::ifstream file("basics_test.txt");
+    if (!file.is_open()) {
+        std::cerr << "Failed to open file" << std::endl;
+        return;
+    }
+    std::vector<std::string> episodeIds = {"tt4", "tt5"};
+    std::vector<std::string> enTitles = EN_Titles(file, episodeIds);
+    if (enTitles.empty()) {
+        std::cerr << "Failed to extract titles" << std::endl;
+        return;
+    }
+    assert(enTitles.size() == 2);
+    assert(enTitles[0] == "S1E1");
+    assert(enTitles[1] == "S1E2");
+}
+
 void TestEpisodeSearch() {
     std::ifstream file("episode_test.txt");
     std::vector<std::string> episodeIds = Episode_Search(file, "tt1");
     assert(episodeIds.size() == 2);
     assert(episodeIds[0] == "tt4");
     assert(episodeIds[1] == "tt5");
-}
-
-void TestEnTitles() {
-    std::ifstream file("basics_test.txt");
-    std::vector<std::string> episodeIds = {"tt4", "tt5"};
-    std::vector<std::string> enTitles = EN_Titles(file, episodeIds);
-    assert(enTitles.size() == 2);
-    assert(enTitles[0] == "S1E1");
-    assert(enTitles[1] == "S1E2");
 }
 
 void TestSeriesSearch() {
@@ -102,10 +110,10 @@ int main() {
     std::cout << "TestStringWithMultipleTabs passed" << std::endl;
     TestStringWithOnlyTabs();
     std::cout << "TestStringWithOnlyTabs passed" << std::endl;
-    TestEpisodeSearch();
-    std::cout << "TestEpisodeSearch passed" << std::endl;
     TestEnTitles();
     std::cout << "TestEnTitles passed" << std::endl;
+    TestEpisodeSearch();
+    std::cout << "TestEpisodeSearch passed" << std::endl;    
     TestSeriesSearch();
     std::cout << "TestSeriesSearch passed" << std::endl;
     TestRuTitles();

@@ -35,6 +35,7 @@ std::vector<std::string> EN_Titles(std::ifstream& File, const std::vector<std::s
     return En_Name;
 }
 
+
 std::vector<std::string> Series_Search(std::ifstream& File, const std::string& Ser_Name) {
     std::vector<std::string> result;
     std::string line;

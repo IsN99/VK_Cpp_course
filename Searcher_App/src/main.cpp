@@ -9,6 +9,7 @@ int Parse_Args(int argc, char* argv[], string& Basics_Name, string& Episode_Name
     cout << "Формат ввода: " << argv[0];
     cout << " --basics-name <BASICS> --episode-name <EPISODES> --akas-name <AKAS> --series-name <\"SERIES\">"<<endl << endl;
 
+	
     if (argc == 9){
         for (int i = 0; i < 9; i++){
             if (std::string(argv[i]).compare("--basics-name") == 0){

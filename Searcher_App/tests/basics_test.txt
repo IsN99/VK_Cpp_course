@@ -1,0 +1,9 @@
+tconst	titleType	primaryTitle	originalTitle	isAdult	startYear	endYear	runtimeMinutes	genres
+tt1	tvSeries	Series1	Series1	0	1894	\N	1	Documentary,Short
+tt2	tvSeries	Series2	Series2	0	1892	\N	5	Animation,Short
+tt3	tvSeries	Series3	Series3	1	1892	\N	4	Animation,Comedy,Romance
+tt4	tvEpisode	S1E1	S1E1	0	1892	\N	12	Animation,Short
+tt5	tvEpisode	S1E2	S1E2	0	1893	\N	1	Comedy,Short
+tt6	tvEpisode	S2E1	S2E1	0	1894	\N	1	Short
+tt7	tvEpisode	S2E2	S2E2	0	1894	\N	1	Short,Sport
+tt8	tvEpisode	S2E3	S2E3	0	1894	\N	1	Documentary,Short
